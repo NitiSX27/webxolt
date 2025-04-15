@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Verify OTP</h2>
+    <form method="POST" id="otpForm" class="needs-validation" novalidate>
+        <div class="form-group">
+            <label for="otp">Enter OTP sent to your email</label>
+            <input type="text" class="form-control" id="otp" name="otp" required pattern="\\d{6}" maxlength="6" />
+            <div class="invalid-feedback">
+                Please enter a valid 6-digit OTP.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Verify</button>
+    </form>
+</div>
+<script src="{{ url_for('static', filename='js/otp.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <article class="discussion-card">
+        <div class="discussion-meta">
+            <span class="author">{{ thread.author }}</span>
+            <span class="date">{{ thread.created_at.strftime('%b %d, %Y') if thread.created_at else '' }}</span>
+        </div>
+        <h2>{{ thread.title }}</h2>
+        <p>{{ thread.content }}</p>
+        <div class="like-dislike-buttons" data-thread-id="{{ thread._id }}">
+            <button class="btn-like" type="button">👍 <span class="like-count">{{ thread.likes }}</span></button>
+            <button class="btn-dislike" type="button">👎 <span class="dislike-count">{{ thread.dislikes }}</span></button>
+        </div>
+    </article>
+
+    <section class="replies-section">
+        <h3>Replies</h3>
+        {% for reply in replies %}
+        <article class="discussion-card" data-reply-id="{{ reply._id }}">
+            <div class="discussion-meta">
+                <span class="author">{{ reply.author }}</span>
+                <span class="date">{{ reply.created_at.strftime('%b %d, %Y') if reply.created_at else '' }}</span>
+            </div>
+            <p>{{ reply.content }}</p>
+            <div class="like-dislike-buttons">
+                <button class="btn-like" type="button">👍 <span class="like-count">{{ reply.likes }}</span></button>
+                <button class="btn-dislike" type="button">👎 <span class="dislike-count">{{ reply.dislikes }}</span></button>
+            </div>
+        </article>
+        {% else %}
+        <p>No replies yet. Be the first to reply!</p>
+        {% endfor %}
+    </section>
+
+    {% if current_user.is_authenticated %}
+    <section class="reply-form-section">
+        <h3>Post a Reply</h3>
+        <form method="POST" action="{{ url_for('forum.reply', thread_id=thread._id) }}" class="needs-validation" novalidate id="replyForm">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.content.label }} {{ form.content(class="form-control", id="content") }}
+            </div>
+            {{ form.submit(class="btn btn-primary btn-submit") }}
+        </form>
+    </section>
+    {% endif %}
+</div>
+{% endblock %}
