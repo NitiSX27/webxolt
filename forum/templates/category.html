@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>{{ category.name }}</h2>
+    <p>{{ category.description }}</p>
+    {% if current_user.is_authenticated %}
+        <a href="{{ url_for('forum.new_thread', category_id=category._id) }}" class="btn btn-primary btn-submit" style="margin-bottom: 20px;">New Thread</a>
+    {% endif %}
+    <div class="discussion-list">
+        {% for thread in threads %}
+        <article class="discussion-card">
+            <div class="discussion-meta">
+                <span class="author">{{ thread.author }}</span>
+                <span class="date">{{ thread.created_at.strftime('%b %d, %Y') if thread.created_at else '' }}</span>
+            </div>
+            <h3><a href="{{ url_for('forum.thread', thread_id=thread._id) }}">{{ thread.title }}</a></h3>
+            <p class="excerpt">{{ thread.content|truncate(150) }}</p>
+            <div class="discussion-stats">
+                <span><i class="fas fa-comment"></i> {{ thread.reply_count }} replies</span>
+            </div>
+        </article>
+        {% else %}
+        <p>No threads found in this category.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

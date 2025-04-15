@@ -1,0 +1,456 @@
+/* Global Styles */
+body {
+    background-color: #f9fafb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.logo-area .tagline {
+    font-size: 0.9rem;
+    color: #adb5bd;
+    margin-top: 2px;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+}
+
+.main-nav ul li a {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul li a i {
+    margin-right: 6px;
+}
+
+/* Flash message */
+.flash-message {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero .lead {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+}
+
+.hero .btn-primary {
+    background-color: #fff;
+    color: #2575fc;
+    padding: 14px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.hero .btn-primary:hover {
+    background-color: #e6e6e6;
+    color: #1a5edb;
+}
+
+/* Featured Categories */
+.featured-categories h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #222;
+    text-align: center;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.category-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-icon {
+    font-size: 3rem;
+    color: #2575fc;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: #222;
+}
+
+.category-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.category-card .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: 2px solid #2575fc;
+    color: #2575fc;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.category-card .btn:hover {
+    background-color: #2575fc;
+    color: white;
+}
+
+.category-card .btn-primary {
+    background-color: #2575fc;
+    border: none;
+    color: white;
+}
+
+.category-card .btn-primary:hover {
+    background-color: #1a3dbb;
+}
+
+/* Discussion Sections */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #222;
+    text-align: center;
+}
+
+.discussion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.discussion-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.discussion-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.discussion-meta {
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.discussion-meta .author {
+    font-weight: 600;
+}
+
+.discussion-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+}
+
+.discussion-card h3 a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.discussion-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.excerpt {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.discussion-stats {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.discussion-stats i {
+    margin-right: 6px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+.btn-outline:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Forms */
+form {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    max-width: 480px;
+    margin: 0 auto 40px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0,123,255,0.3);
+    outline: none;
+}
+
+.invalid-feedback {
+    display: block;
+    font-size: 0.9rem;
+    color: #d9534f;
+    margin-top: 6px;
+}
+
+button[type="submit"], .btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover, .btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #34495e;
+    color: #bdc3c7;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1 1 250px;
+    margin: 10px 20px;
+}
+
+.footer-section h3 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ecf0f1;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    font-size: 0.95rem;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #95a5a6;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 15px 0;
+    }
+
+    .discussion-list {
+        grid-template-columns: 1fr !important;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
