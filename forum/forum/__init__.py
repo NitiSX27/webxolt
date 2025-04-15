@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'g!Y3$gUz4z#@kF^bT*1p9WvQe@f!z2Rx'  # Replace with a secure key
 
 # MongoDB connection
-client = MongoClient('localhost', 27017)
+# MongoDB connection
+client = MongoClient('mongodb+srv://nitishmeesi:rlGiBPTXaLHBpGDC@flask.cii4wgd.mongodb.net/?retryWrites=true&w=majority&appName=flask')
 db = client['forumApp']
 
 # Set up Flask-Login
