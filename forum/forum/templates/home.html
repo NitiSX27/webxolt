@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Join the Conversation</h1>
+        <p class="lead">Connect with like-minded people and share your thoughts</p>
+        {% if not current_user.is_authenticated %}
+            <a href="{{ url_for('forum.register') }}" class="btn btn-primary">Get Started</a>
+        {% endif %}
+    </div>
+</section>
+
+<section class="featured-categories">
+    <h2>Popular Categories</h2>
+    <div class="category-grid">
+        {% for category in categories %}
+        <div class="category-card">
+            <div class="category-icon">
+                <i class="fas fa-{{ 'code' if loop.index0 == 0 else 'chart-line' if loop.index0 == 1 else 'paint-brush' }}"></i>
+            </div>
+            <h3>{{ category.name }}</h3>
+            <p>{{ 'Discuss the latest in tech and programming' if loop.index0 == 0 else 'Share business ideas and strategies' if loop.index0 == 1 else 'Showcase your creative projects' }}</p>
+            <a href="{{ url_for('forum.category', category_id=category._id) }}" class="btn btn-outline">Browse</a>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('forum.new_thread', category_id=category._id) }}" class="btn btn-primary" style="margin-top: 10px;">New Thread</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="recent-discussions">
+    <h2>Recent Discussions</h2>
+    <div class="discussion-list">
+        {% for thread in recent_threads %}
+        <article class="discussion-card">
+            <div class="discussion-meta">
+                <span class="author">{{ thread.author }}</span>
+                <span class="date">{{ thread.created_at.strftime('%b %d, %Y') if thread.created_at else '' }}</span>
+            </div>
+            <h3><a href="{{ url_for('forum.thread', thread_id=thread._id) }}">{{ thread.title }}</a></h3>
+            <p class="excerpt">{{ thread.content|truncate(150) }}</p>
+            <div class="discussion-stats">
+                <span><i class="fas fa-comment"></i> {{ thread.reply_count }} replies</span>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% if current_user.is_authenticated and user_threads %}
+<section class="your-discussions">
+    <h2>Discussions You've Participated In</h2>
+    <div class="discussion-list">
+        {% for thread in user_threads %}
+        <article class="discussion-card">
+            <div class="discussion-meta">
+                <span class="author">{{ thread.author }}</span>
+                <span class="date">{{ thread.created_at.strftime('%b %d, %Y') if thread.created_at else '' }}</span>
+            </div>
+            <h3><a href="{{ url_for('forum.thread', thread_id=thread._id) }}">{{ thread.title }}</a></h3>
+            <p class="excerpt">{{ thread.content|truncate(150) }}</p>
+            <div class="discussion-stats">
+                <span><i class="fas fa-comment"></i> {{ thread.reply_count }} replies</span>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{
+  "name": "otp_service",
+  "version": "1.0.0",
+  "description": "OTP verification service using two-step-auth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "otp_service": "file:",
+    "two-step-auth": "^1.1.2"
+  }
+}
