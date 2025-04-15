@@ -2,14 +2,22 @@ from flask import Flask
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_login import LoginManager
+from pymongo import MongoClient
+import ssl
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'g!Y3$gUz4z#@kF^bT*1p9WvQe@f!z2Rx'  # Replace with a secure key
 
 # MongoDB connection
-# MongoDB connection
-client = MongoClient('mongodb+srv://nitishmeesi:rlGiBPTXaLHBpGDC@flask.cii4wgd.mongodb.net/?retryWrites=true&w=majority&appName=flask')
+client = MongoClient(
+    'mongodb+srv://nitishmeesi:rlGiBPTXaLHBpGDC@flask.cii4wgd.mongodb.net/?retryWrites=true&w=majority&appName=flask',
+    tls=True,
+    tlsAllowInvalidCertificates=True,  # This bypasses strict cert checks (safe for dev)
+    tlsAllowInvalidHostnames=True     # Helps in cases of hostname mismatch
+)
+
 db = client['forumApp']
+
 
 # Set up Flask-Login
 login_manager = LoginManager()
